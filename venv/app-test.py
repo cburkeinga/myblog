@@ -92,5 +92,8 @@ class FlaskrTestCase(unittest.TestCase):
         data = json.loads((rv.data).decode('utf-8'))
         self.assertEqual(data['status'], 1)
 
+#if __name__ == '__main__':
+#    unittest.main()
 if __name__ == '__main__':
-    unittest.main()
+    import xmlrunner
+    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
