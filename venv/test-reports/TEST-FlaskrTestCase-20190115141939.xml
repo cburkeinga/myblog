@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<testsuite errors="0" failures="0" name="FlaskrTestCase-20190115141939" tests="4" time="0.090">
+	<testcase classname="FlaskrTestCase" name="test_delete_message" time="0.014"/>
+	<testcase classname="FlaskrTestCase" name="test_empty_db" time="0.012"/>
+	<testcase classname="FlaskrTestCase" name="test_login_logout" time="0.034"/>
+	<testcase classname="FlaskrTestCase" name="test_messages" time="0.030"/>
+	<system-out>
+<![CDATA[]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>
