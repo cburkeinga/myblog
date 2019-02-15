@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Blog Web App</title>
+  <title>My Blog Web App v2</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -12,9 +12,14 @@
     <div class="metanav">
       {% if not session.logged_in %}
         <a href="{{ url_for('login') }}">log in</a>
+      <br>
+        <a href="{{ url_for('login') }}">log in via Facebook</a>
       {% else %}
         <a href="{{ url_for('logout') }}">log out</a>
+        <br>
         <a href="{{ url_for('purge') }}">Purge Database</a>
+        <br>
+        <a href="http://localhost:5000/status/2">Show Server Uptime</a>
       {% endif %}
     </div>
     {% for message in get_flashed_messages() %}

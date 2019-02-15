@@ -1,5 +1,8 @@
 # imports
 import sqlite3
+import os
+#import status
+
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash, jsonify
 
@@ -65,12 +68,16 @@ def login():
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
             error = 'Invalid username'
+            abort(401, error)
         elif request.form['password'] != app.config['PASSWORD']:
             error = 'Invalid password'
+            abort(401, error)
         else:
             session['logged_in'] = True
-            flash('You were logged in')
-            return redirect(url_for('index'))
+            flash('You were logged in!!\n Welcome to the BLOG application.  '
+                  'You may enter and title and descriptionf or your blog using the application.  '
+                  'Note. This a application has no security controls so you may hack away a will.')
+            return redirect(url_for('index'), code=200)
     return render_template('login.html', error=error)
 
 
@@ -121,7 +128,36 @@ def purge():
     flash('Blog database purged')
     return redirect(url_for('index'))
 
+@app.route('/health',  methods=['GET', 'POST'])
+def health():
+    '''Run command designated by command id'''
+    if not session.get('logged_in'):
+        abort(401)
+    try:
+        result = {'status': 0, 'message': 'Error'}
+        #msg = os.popen('net statistics Workstation').read()
+        msg = os.popen('python status.py 2').read()
+        result = {'status': 1, 'message': msg}
+        flash(str(msg))
+    except Exception as e:
+        result = {'status': 0, 'message': repr(e)}
+        flash(result)
 
+    return redirect(url_for('index'))
+
+@app.route('/status/<post_id>', methods=['GET'])
+def status(post_id):
+    '''Delete post from database'''
+    result = {'status': 0, 'message': 'Error'}
+    try:
+        msg = os.popen('python status.py ' + post_id).read()
+        result = {'status': 1, 'message': msg}
+        flash(str(msg))
+    except Exception as e:
+        result = {'status': 0, 'message': repr(e)}
+
+    #return jsonify(result)
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     init_db()
