@@ -32,13 +32,15 @@ jobs:
 
    - script: |
       python -m pip install --upgrade pip
-      python pip install Click
-      python pip install Flask
-      python pip install Jinja2
-      
-      python pip install psutil
-      python pip install setuptools
-      python pip install xmlrunner
+      python -m pip install Click
+      python -m pip install Flask
+      python -m pip install Jinja2
+      python -m pip install MarkupSafe
+      python -m pip install Werkzeug
+      python -m pip install itsdangerous
+      python -m pip install psutil
+      python -m pip install setuptools
+      python -m pip install xmlrunner
       
       cd venv
       python app-test.py
