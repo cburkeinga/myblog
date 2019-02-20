@@ -10,8 +10,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: echo clone repo!
-  displayName: 'Clone the GitHub repo'
+- script: python app.py
+  displayName: 'run myblop app'
 
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
