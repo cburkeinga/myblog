@@ -10,7 +10,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: python app.py
+- script: dir
   displayName: 'run myblop app'
 
 - script: echo Hello, world!
