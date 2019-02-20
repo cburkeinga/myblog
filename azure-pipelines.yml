@@ -25,14 +25,14 @@ jobs:
    - task: CmdLine@2
      inputs:
        script: 'dir'
-     
+
    - task: UsePythonVersion@0
      inputs:
       versionSpec: '$(python.version)'
 
    - script: |
       python -m pip install --upgrade pip
-      cd myblog/venv
+      cd venv
       python app-test.py
      displayName: 'Run Tests'
 
