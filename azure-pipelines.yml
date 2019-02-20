@@ -22,8 +22,9 @@ jobs:
     maxParallel: 2
 
    steps:
-   - checkout: self
-     clean: true
+   - task: CmdLine@2
+     inputs:
+       script: 'dir'
      
    - task: UsePythonVersion@0
      inputs:
