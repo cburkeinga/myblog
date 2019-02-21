@@ -50,7 +50,7 @@ jobs:
 
    - task: PublishTestResults@2
      inputs:
-       testResultsFiles: 'test-reports/'
+       testResultsFiles: 'test-reports/results.xml'
        testRunTitle: '$(Agent.OS) - $(Build.BuildNumber)[$(Agent.JobName)] - Python $(python.version)'
      condition: succeededOrFailed()
      
