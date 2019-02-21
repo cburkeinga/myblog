@@ -3,6 +3,7 @@ import os
 import tempfile
 import json
 import app
+import xmlrunner
 
 
 class BasicTestCase(unittest.TestCase):
@@ -97,6 +98,11 @@ class FlaskrTestCase(unittest.TestCase):
 
 #if __name__ == '__main__':
 #    unittest.main()
+#if __name__ == '__main__':
+#    import xmlrunner
+#    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
 if __name__ == '__main__':
-    import xmlrunner
-    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
+    with open('test-reports/results.xml', 'w') as output:
+        unittest.main(
+            testRunner=xmlrunner.XMLTestRunner(output=output),
+            failfast=False, buffer=False, catchbreak=False)
