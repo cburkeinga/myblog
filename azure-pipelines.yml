@@ -43,7 +43,9 @@ jobs:
       python -m pip install xmlrunner
       
       cd venv
+      
       python app-test.py
+      
      displayName: 'Run Tests'
 
    - task: PublishTestResults@2
