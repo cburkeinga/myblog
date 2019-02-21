@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<testsuite errors="0" failures="0" name="BasicTestCase-20190221135535" tests="2" time="0.030">
+	<testcase classname="BasicTestCase" name="test_database" time="0.000"/>
+	<testcase classname="BasicTestCase" name="test_index" time="0.030"/>
+	<system-out>
+<![CDATA[]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>
+<?xml version="1.0" ?>
+<testsuite errors="0" failures="0" name="FlaskrTestCase-20190221135535" tests="4" time="0.082">
+	<testcase classname="FlaskrTestCase" name="test_delete_message" time="0.019"/>
+	<testcase classname="FlaskrTestCase" name="test_empty_db" time="0.013"/>
+	<testcase classname="FlaskrTestCase" name="test_login_logout" time="0.020"/>
+	<testcase classname="FlaskrTestCase" name="test_messages" time="0.031"/>
+	<system-out>
+<![CDATA[]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>
