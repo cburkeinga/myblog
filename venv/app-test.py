@@ -57,19 +57,22 @@ class FlaskrTestCase(unittest.TestCase):
             app.app.config['USERNAME'],
             app.app.config['PASSWORD']
         )
-        assert b'You were logged in' in rv.data
+        #assert b'You were logged in' in rv.data
+        assert b'Redirecting'
         rv = self.logout()
         assert b'You were logged out' in rv.data
         rv = self.login(
             app.app.config['USERNAME'] + 'x',
             app.app.config['PASSWORD']
         )
-        assert b'Invalid username' in rv.data
+        #assert b'Invalid username' in rv.data
+        assert b'Unauthorized' in rv.data
         rv = self.login(
             app.app.config['USERNAME'],
             app.app.config['PASSWORD'] + 'x'
         )
-        assert b'Invalid password' in rv.data
+        #assert b'Invalid password' in rv.data
+        assert b'Unauthorized' in rv.data
 
     def test_messages(self):
         """Ensure that a user can post messages."""
