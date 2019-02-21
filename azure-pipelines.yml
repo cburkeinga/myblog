@@ -43,10 +43,11 @@ jobs:
       python -m pip install xmlrunner
       
       cd venv
-      
+
+      python app.py &
       python app-test.py
       
-     displayName: 'Run Tests'
+     displayName: 'Run Functional Tests'
 
    - task: PublishTestResults@2
      inputs:

@@ -10,12 +10,14 @@ class BasicTestCase(unittest.TestCase):
 
     def test_index(self):
         """Initial test: Ensure flask was set up correctly."""
+        print ('Initial test: Ensure flask was set up correctly.')
         tester = app.app.test_client(self)
         response = tester.get('/', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
     def test_database(self):
         """Initial test: Ensure that the database exists."""
+        print ('Initial test: Ensure that the database exists.')
         tester = os.path.exists("flaskr.db")
         self.assertEqual(tester, True)
 
@@ -49,11 +51,13 @@ class FlaskrTestCase(unittest.TestCase):
 
     def test_empty_db(self):
         """Ensure database is blank."""
+        print ('Ensure database is blank.')
         rv = self.app.get('/')
         assert b'No entries here so far' in rv.data
 
     def test_login_logout(self):
         """Test login and logout using helper functions."""
+        print ('Test login and logout using helper functions.')
         rv = self.login(
             app.app.config['USERNAME'],
             app.app.config['PASSWORD']
@@ -77,6 +81,7 @@ class FlaskrTestCase(unittest.TestCase):
 
     def test_messages(self):
         """Ensure that a user can post messages."""
+        print ('Ensure that a user can post messages.')
         self.login(
             app.app.config['USERNAME'],
             app.app.config['PASSWORD']
@@ -92,6 +97,7 @@ class FlaskrTestCase(unittest.TestCase):
 
     def test_delete_message(self):
         """Ensure the messages are being deleted."""
+        print ('Ensure the messages are being deleted.')
         rv = self.app.get('/delete/1')
         data = json.loads((rv.data).decode('utf-8'))
         self.assertEqual(data['status'], 1)
