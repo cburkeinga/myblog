@@ -102,7 +102,7 @@ class FlaskrTestCase(unittest.TestCase):
 #    import xmlrunner
 #    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
 if __name__ == '__main__':
-    with open('test-reports/results.xml', 'w') as output:
+    with open('test-reports/results.xml', 'w+') as output:
         unittest.main(
             testRunner=xmlrunner.XMLTestRunner(output=output),
             failfast=False, buffer=False, catchbreak=False)
